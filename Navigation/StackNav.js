@@ -19,7 +19,7 @@ const StackNav = createStackNavigator(
         defaultNavigationOptions: {
             headerTintColor: "white",
             headerStyle: {
-                backgroundColor: "#2090100"
+                backgroundColor: "rgb(20,90,100)"
               },
             headerTitleStyle: {
             fontWeight: "bold"
