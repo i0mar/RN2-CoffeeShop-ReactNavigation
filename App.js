@@ -29,7 +29,6 @@ export default class App extends Component {
     }
     return (
       <Container>
-        <Header />
         <AppContainer />
       </Container>
     );
