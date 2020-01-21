@@ -1,15 +1,18 @@
 import React from "react";
 
 // NativeBase Components
-import { Button, Icon } from "native-base";
-import { withNavigation } from "react-navigation";
+import { Button, Icon, Text } from "native-base";
+
+import cartStore from "../../Stores/cartStore";
+import { observer } from "mobx-react";
 
 const HeaderComponent = ({ navigation }) => {
     return (
         <Button transparent onPress={() => navigation.navigate("CoffeeCartScreen")}>
+            <Text>{cartStore.numOfItems}</Text>
             <Icon name="cart"/>
         </Button>
     );
 };
 
-export default HeaderComponent;
+export default observer(HeaderComponent);

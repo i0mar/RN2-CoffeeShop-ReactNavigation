@@ -1,22 +1,25 @@
 import React from "react";
 
 // NativeBase Components
-import { List, Content, Button, Icon } from "native-base";
+import { List, Content, Button, Icon, Text } from "native-base";
 
 // Store
-import coffeeshops from "./list";
+// import coffeeshops from "./list";
+import coffeeStore from "../../Stores/coffeeStore";
 
 // Component
 import CoffeeItem from "./CoffeeItem";
 import HeaderComponent from "../HeaderComponent";
+import { observer } from "mobx-react";
 
 const CoffeeList = ({ navigation }) => {
-  const coffeeshopList = coffeeshops.map(coffeeshop => (
+  const coffeeshopList = coffeeStore.coffeeshops.map(coffeeshop => (
     <CoffeeItem coffeeshop={coffeeshop} key={coffeeshop.id}/>
   ));
+
   return (
     <Content>
-      <List>{coffeeshopList}</List>
+      {coffeeshopList}
     </Content>
   );
 };
@@ -30,4 +33,4 @@ CoffeeList.navigationOptions = ({ navigation }) => {
   };
 };
 
-export default CoffeeList;
+export default observer(CoffeeList);

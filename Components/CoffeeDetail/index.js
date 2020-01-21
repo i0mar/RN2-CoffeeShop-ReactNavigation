@@ -19,10 +19,12 @@ import {
 // Style
 import styles from "./styles";
 
-//List
-import coffeeshops from "../CoffeeList/list";
+import coffeeStore from "../../Stores/coffeeStore";
+import cartStore from "../../Stores/cartStore";
+
 
 import HeaderComponent from "../HeaderComponent";
+import { observer } from "mobx-react";
 
 class CoffeeDetail extends Component {
   state = {
@@ -42,7 +44,7 @@ class CoffeeDetail extends Component {
     });
 
   render() {
-    const coffeeshop = coffeeshops.find(coffeeShop => coffeeShop.id == this.props.navigation.getParam("coffeeshopID"));
+    const coffeeshop = coffeeStore.coffeeshops.find(coffeeShop => coffeeShop.id == this.props.navigation.getParam("coffeeshopID"));
     return (
       <Container>
         <Content>
@@ -56,7 +58,7 @@ class CoffeeDetail extends Component {
               </Left>
               <Body />
               <Right>
-                <Thumbnail bordered source={coffeeshop.img} />
+                <Thumbnail bordered source={{uri: coffeeshop.img}} />
               </Right>
             </CardItem>
             <CardItem>
@@ -97,7 +99,7 @@ class CoffeeDetail extends Component {
               </Body>
 
               <Right>
-                <Button full style={styles.addButton}>
+                <Button full style={styles.addButton} onPress={() => cartStore.addItemToCart(this.state)}>
                   <Text>Add</Text>
                 </Button>
               </Right>
@@ -118,4 +120,4 @@ CoffeeDetail.navigationOptions = ({ navigation }) => {
   };
 };
 
-export default CoffeeDetail;
+export default observer(CoffeeDetail);
