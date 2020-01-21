@@ -8,6 +8,8 @@ import CoffeeList from "./Components/CoffeeList";
 import CoffeeDetail from "./Components/CoffeeDetail";
 import CoffeeCart from "./Components/CoffeeCart";
 
+import AppContainer from "./Navigation";
+
 export default class App extends Component {
   state = {
     loading: true
@@ -28,7 +30,7 @@ export default class App extends Component {
     return (
       <Container>
         <Header />
-        <Login />
+        <AppContainer />
       </Container>
     );
   }

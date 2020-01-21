@@ -22,6 +22,8 @@ import styles from "./styles";
 //List
 import coffeeshops from "../CoffeeList/list";
 
+import HeaderComponent from "../HeaderComponent";
+
 class CoffeeDetail extends Component {
   state = {
     drink: "Cappuccino",
@@ -40,7 +42,7 @@ class CoffeeDetail extends Component {
     });
 
   render() {
-    const coffeeshop = coffeeshops[0];
+    const coffeeshop = coffeeshops.find(coffeeShop => coffeeShop.id == this.props.navigation.getParam("coffeeshopID"));
     return (
       <Container>
         <Content>
@@ -106,5 +108,14 @@ class CoffeeDetail extends Component {
     );
   }
 }
+
+CoffeeDetail.navigationOptions = ({ navigation }) => {
+  return {
+    title: navigation.getParam("coffeeshopName"),
+    headerRight: (
+      <HeaderComponent navigation = {navigation} />
+    )
+  };
+};
 
 export default CoffeeDetail;
