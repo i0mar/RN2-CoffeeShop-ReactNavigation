@@ -14,7 +14,7 @@ class CartStore {
             if (!isItemThere)
                 this.items.push(item);
             else
-                isItemThere.quantity++;
+                isItemThere.quantity += item.quantity;
         } else {
             Alert.alert(
                 "Action Denied.",

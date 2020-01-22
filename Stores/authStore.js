@@ -42,19 +42,15 @@ class AuthStore {
         this.setUser();
     };
 
-    checkForToken = async (navigation) => {
+    checkForToken = async () => {
         const temp = await AsyncStorage.getItem("token");
         
         if (temp) {
             const now = new Date() / 1000;
             const userObj = jwt_decode(temp);
 
-            console.log(now);
-            console.log(userObj.exp);
-
             if (now <= userObj.exp) {
                 this.setUser(temp);
-                navigation.navigate("StackNav");
             }
         } else
             this.setUser();
@@ -66,5 +62,6 @@ decorate(AuthStore, {
 });
 
 const authStore = new AuthStore();
+authStore.checkForToken();
 
 export default authStore;

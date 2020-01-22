@@ -14,10 +14,6 @@ class Login extends Component {
     password: ""
   };
 
-  componentDidMount() {
-    authStore.checkForToken(this.props.navigation);
-  };
-
   render() {
     return (
       <View style={styles.authContainer}>
