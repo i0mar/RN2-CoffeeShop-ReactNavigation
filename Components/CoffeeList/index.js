@@ -4,12 +4,13 @@ import React from "react";
 import { List, Content, Button, Icon, Text } from "native-base";
 
 // Store
-// import coffeeshops from "./list";
+import authStore from "../../Stores/authStore";
 import coffeeStore from "../../Stores/coffeeStore";
 
 // Component
 import CoffeeItem from "./CoffeeItem";
 import HeaderComponent from "../HeaderComponent";
+import Logout from "../Authentication/Logout";
 import { observer } from "mobx-react";
 
 const CoffeeList = ({ navigation }) => {
@@ -20,6 +21,7 @@ const CoffeeList = ({ navigation }) => {
   return (
     <Content>
       {coffeeshopList}
+      {authStore.user && <Logout />}
     </Content>
   );
 };

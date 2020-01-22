@@ -1,5 +1,3 @@
-import Login from "../Components/Authentication/Login";
-import Signup from "../Components/Authentication/Signup";
 import CoffeeList from "../Components/CoffeeList/";
 import CoffeeDetail from "../Components/CoffeeDetail";
 import CoffeeCart from "../Components/CoffeeCart";
@@ -8,14 +6,12 @@ import { createStackNavigator } from "react-navigation-stack";
 
 const StackNav = createStackNavigator(
     {
-        LoginScreen: Login,
-        SignupScreen: Signup,
         CoffeeListScreen: CoffeeList,
         CoffeeDetailScreen: CoffeeDetail,
         CoffeeCartScreen: CoffeeCart
     },
     {
-        initialRouteName: "LoginScreen",
+        initialRouteName: "CoffeeListScreen",
         defaultNavigationOptions: {
             headerTintColor: "white",
             headerStyle: {

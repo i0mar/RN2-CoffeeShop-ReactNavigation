@@ -1,5 +1,6 @@
 import { decorate, observable } from "mobx";
 import axios from "axios";
+import instance from "./instance";
 
 class CoffeeStore {
     coffeeshops = [];
@@ -7,7 +8,7 @@ class CoffeeStore {
 
     fetchAllCoffeeShops = async () => {
         try {
-            const res = await axios.get("http://178.128.114.232/api/?format=json");
+            const res = await instance.get("?format=json");
             this.coffeeshops = res.data;
             this.loading = false;
         } catch (error) {

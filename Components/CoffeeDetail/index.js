@@ -99,7 +99,7 @@ class CoffeeDetail extends Component {
               </Body>
 
               <Right>
-                <Button full style={styles.addButton} onPress={() => cartStore.addItemToCart(this.state)}>
+                <Button full style={styles.addButton} onPress={() => cartStore.addItemToCart(this.state, this.props.navigation)}>
                   <Text>Add</Text>
                 </Button>
               </Right>
